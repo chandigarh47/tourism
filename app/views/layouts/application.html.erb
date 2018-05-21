@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tourism</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+    <nav class="nav nav-tabs nav-justified">
+
+          <% if @current_user.present? %>
+            <%= link_to "Sign Out", login_path, :method => 'delete'%>
+          <% end %>
+          <%= link_to 'Sign Up', new_user_path %>
+          <%= link_to 'Sign In', login_path %>
+
+    </nav>
+
+    <div class="image">
+        <img src="">
+    </div>
+
+
+    <%= yield %>
+  </body>
+</html>

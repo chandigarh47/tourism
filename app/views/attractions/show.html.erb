@@ -1,0 +1,10 @@
+<h1> show page</h1>
+
+<% @attractions.each do |attraction| %>
+    <p>
+      <h1> <%= attraction.name %> </h1>
+      <h2> Activity: <%= attraction.category %></h2>
+      <%= image_tag (attraction.image) %>
+      <hr/>
+    </p>
+<% end %>

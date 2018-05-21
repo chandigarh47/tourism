@@ -1,0 +1,9 @@
+
+<% @attractions.each do |attraction| %>
+    <p>
+      <h1> <%= attraction.name %> </h1>
+      <h2> Activity: <%= attraction.category %></h2>
+      <%= attraction.image %>
+      <hr/>
+    </p>
+<% end %>
