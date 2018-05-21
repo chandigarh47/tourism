@@ -1,5 +1,100 @@
 <h1>Welcome to my Website</h1>
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+<link rel="stylesheet" type="text/css" href="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1524740152" />
+<script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-core.js"></script>
+<script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-service.js"></script>
+<script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+<script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+
+</head>
+<body>
+
+  <link href="jquery.easy_slides.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="jquery.easy_slides.js"></script>
+
+  <!-- <div class="slider slider_one_big_picture">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div class="next_button">NEXT</div>
+  <div class="prev_button">PREV</div>
+  <div class="nav_indicators"></div>
+ </div> -->
+
+ <div class="slider slider_circle_10">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div class="next_button">NEXT</div>
+  <div class="prev_button">PREV</div>
+ </div>
+ <!-- <div class="slider slider_four_in_line">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div class="next_button">NEXT</div>
+  <div class="prev_button">PREV</div>
+ </div> -->
+ <!-- <div class="slider slider_clock">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div class="next_button">NEXT</div>
+  <div class="prev_button">PREV</div>
+ </div> -->
+    <!-- <link href="sliderResponsive.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="sliderResponsive.js"></script> -->
+
+
+
+
+  <!-- <div class="slider" id="slider-demo">
+
+  <div style="background-image:url(Sydney2.jpg)"></div>
+  <div style="background-image:url(sydney3.jpg)"></div>
+  <div style="background-image:url(sydney3.jpg)"></div>
+  <div style="background-image:url(sydney3.jpg)"></div>
+  <div style="background-image:url(sydney3.jpg)"></div>
+
+  <i class="left" class="arrows" style="z-index:2; position:absolute;"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"></path></svg></i>
+  <i class="right" class="arrows" style="z-index:2; position:absolute;"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" transform="translate(100, 100) rotate(180) "></path></svg></i>
+
+  <span class="titleBar">
+    <! <h1><a href="https://www.jqueryscript.net/slider/">Slider</a> Description Here</h1> -->
+  <!-- </span>
+</div>  -->
+
+
 <div class="home-image">
     <p>Sydney</p>
     <p>Melbourne</p>
@@ -9,3 +104,40 @@
     <p>Canberra</p>
     <p>Blue Mountains</p>
 </div>
+
+<div id="map" />
+<script  type="text/javascript" charset="UTF-8" >
+/**
+ * Moves the map to display over Berlin
+ *
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function moveMapToBerlin(map){
+  map.setCenter({lat:-33.8688, lng:151.2093});
+  map.setZoom(14);
+}
+var platform = new H.service.Platform({
+  app_id: 'DemoAppId01082013GAL',
+  app_code: 'AJKnXv84fjrb0KIHawS0Tg',
+  useCIT: true,
+  useHTTPS: true
+});
+var defaultLayers = platform.createDefaultLayers();
+
+//Step 2: initialize a map  - not specificing a location will give a whole world view.
+var map = new H.Map(document.getElementById('map'),
+  defaultLayers.normal.map);
+
+//Step 3: make the map interactive
+// MapEvents enables the event system
+// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// Create the default UI components
+var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+// Now use the map as required...
+moveMapToBerlin(map);
+  </script>
+</body>
+</html>

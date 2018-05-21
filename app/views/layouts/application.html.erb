@@ -7,24 +7,80 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="rSlider.min.css">
   </head>
 
   <body>
+    <script type="text/javascript" src="jquery.min.js" charset="utf-8"></script>
 
 
-    <nav class="nav nav-tabs nav-justified">
+    <div id="menu" class="default">
+          <ul>
+            <% if @current_user.present? %>
+              <%= link_to "Sign Out", login_path, :method => 'delete'%>
+            <% end %>
+          <li><%= link_to 'Sign Up', new_user_path %></li>
+          <li><%= link_to 'Sign In', login_path %></li>
 
-          <% if @current_user.present? %>
-            <%= link_to "Sign Out", login_path, :method => 'delete'%>
-          <% end %>
-          <%= link_to 'Sign Up', new_user_path %>
-          <%= link_to 'Sign In', login_path %>
-
-    </nav>
-
-    <div class="image">
-        <img src="">
+          <li><%= link_to 'Explore Australia', places_path %></li>
+          </ul>
     </div>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="js/jquery.ripples.js"></script>
+
+    <div class="demo" style="background-image:url(sydney3.jpg)">
+    </div>
+    <!-- {
+  currentSlide: 0,
+  defaultSlide: 0,
+  delay: 7000,
+  height: undefined,
+  width: undefined,
+  minHeight: 500,
+  automatic: false,
+  dirButtons: true,
+  dirButtonNext: "next",
+  dirButtonPrev: "prev",
+  transitions: true
+  } -->
+    <!-- <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="src/jR3DCarousel.js"></script>
+
+    var slides = [
+
+    {src: 'https://unsplash.it/600/450?image=839'},
+
+    {src: 'https://unsplash.it/600/450?image=838'},
+
+    {src: 'https://unsplash.it/600/450?image=837'},
+
+    {src: 'https://unsplash.it/600/450?image=836'},
+
+    {src: 'https://unsplash.it/600/450?image=832'},
+
+    {src: 'https://unsplash.it/600/450?image=823'},
+
+    {src: 'https://unsplash.it/600/450?image=822'}
+
+];
+
+  <div class="carousel-demo">
+
+    <div class="slide"><img src="1.jpg" /></div>
+
+    <div class="slide"><img src="2.jpg" /></div>
+
+    <div class="slide"><img src="3.jpg" /></div>
+
+    <div class="slide"><img src="4.jpg" /></div>
+
+    <div class="slide"><img src="5.jpg" /></div>
+
+  </div> -->
+
 
 
     <%= yield %>
