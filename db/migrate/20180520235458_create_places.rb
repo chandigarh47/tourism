@@ -5,6 +5,8 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.text :state
       t.text :description
       t.text :image
+      t.integer :latitude
+      t.integer :longitude
 
       t.timestamps
     end

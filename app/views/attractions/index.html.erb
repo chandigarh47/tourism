@@ -1,9 +1,103 @@
+<div class="ripple-effect">
+
+
+</div>
+
+
+<link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+
+<div class="wrap">
+  <div class="sticker"></div>
+  <div class="msg"><h1> <%= @place.name %></h1></div>
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<!-- <h1> <%= @place.name %></h1> -->
+
+<h4>Weather</h4>
+<div id="attraction-data">
+
+</div>
+
+<img id="icon-image" />
 
 <% @attractions.each do |attraction| %>
     <p>
-      <h1> <%= attraction.name %> </h1>
-      <h2> Activity: <%= attraction.category %></h2>
-      <%= attraction.image %>
+      <h3> <%= attraction.name %> </h3>
+      <h5> Activity: <%= attraction.category %></h5>
+      <%= image_tag attraction.image, :class => 'thumb' %>
+      <h5><%= link_to('Visit Website', attraction.booking_link) %></h5>
+
+      <hr/>
       <hr/>
     </p>
+    <!-- <%= link_to "People's Review", new_place_attraction_review_path(attraction.place_id, attraction.id)%>
+    <% attraction.reviews.each do |review|%>
+    <p>
+        <%= review.comment %>
+    </p>
+    <% end %> -->
 <% end %>
+
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+s.src = '//tourism-3.disqus.com/embed.js';
+this.page.url = "<%= url_for(host: ENV['APPLICATION_HOST'])%>";  // Replace PAGE_URL with your page's canonical URL variable
+
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tourism-3.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<!-- <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
+
+
+
+<!-- // <div class="form-details">
+//       <button onclick="$('#reviews').slideToggle()">Show reviews</button>
+//       <div id="reviews" style="display:none">
+//         <% if @current_user.present? %>
+//         <%= form_for Review.new do |f| %>
+//         <%= f.label :comment %>
+//         <%= f.text_area :comment %>
+//
+//         <%= hidden_field_tag :attraction_id, @attraction.id %>
+//         <%= f.submit %>
+//         <% end %>
+//
+//   <ul>
+//       <li>User Name: <%= review.user.name %></li>
+//       <li>User's Review Date: <%= review.created_at.strftime '%B %d, %Y'%></li>
+//   </ul>
+//   <hr>
+//
+//   <%= form_tag attraction_path do |f| %>
+//       <%= f.label :comment %>
+//       <%= f.text_area :comment, :autofocus => true %>
+//       <%= f.submit %>
+//
+//   <% end %>
+//
+//   <! show author name and date -->
+<!-- // <% end %> -->
+
+ <!-- <table class="table table-striped">
+// <tr>
+//   <td><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+// </tr>
+// <tr>
+//   <td><span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
+//
+// </tr>
+// <tr>
+//   <td><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+//
+//   <td></td>
+//   <td></td>
+// </tr>
+// </table> -->

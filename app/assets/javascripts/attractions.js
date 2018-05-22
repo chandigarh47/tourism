@@ -11,7 +11,6 @@ $(document).ready(function(){
     let temp_min;
     let icon;
 
-
      $.getJSON(URL).done(function(info){
         console.log(info);
 
@@ -25,7 +24,11 @@ $(document).ready(function(){
         $('#icon-image').attr('src', iconImage);
 
         $('#attraction-data').html(data);
-        $('#attraction-data').append(temp_max, temp_min)
+
+        let pmax = $('<p></p>').addClass('temp_max').html(temp_max);
+        let pmin = $('<p></p>').addClass('temp_min').html(temp_min);
+        $('#attraction-data').append(pmax);
+        $('#attraction-data').append(pmin);
         // $("#attraction-data").html(temp_max);
      });
 

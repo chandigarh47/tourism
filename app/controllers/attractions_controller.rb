@@ -1,8 +1,10 @@
 class AttractionsController < ApplicationController
   def index
+    @place = Place.find params[:place_id]
+    @attractions = @place.attractions
+    
 
-    @attraction = Attraction.all
-
+    # @review = Review.all
   end
 
   def new
@@ -10,7 +12,7 @@ class AttractionsController < ApplicationController
   end
 
   def show
-    @place = Place.find params[:id]
+    @place = Place.find params[:place_id]
     @attractions = @place.attractions
   end
 

@@ -1,5 +1,14 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @reviews = Review.all
+  end
+
+  def new
+    @review = Review.new
+    @attraction = Attraction.find params[:attraction_id]
+  end
+
   def create
     attraction = Attraction.find params[:attraction_id]
     review = attraction.reviews.create review_params
@@ -10,6 +19,11 @@ class ReviewsController < ApplicationController
   def edit
     @review = Review.find params[:id]
   end
+  #
+  # def show
+  #   @attraction = Attraction.find params[:id]
+  #   @reviews = @attraction.reviews
+  # end
 
   def update
     review = Review.find params[:id]
@@ -25,7 +39,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-  params.require(:review).permit(:attraction_id, :image)
+  params.require(:review).permit(:attraction_id, :user_id, :comment)
   end
 
 end

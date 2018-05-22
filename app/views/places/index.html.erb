@@ -1,12 +1,16 @@
+<div class="ripple-effect">
+
+
+</div>
 <h1>All Places of Australia</h1>
 
 
 <% @places.each do |place| %>
     <p>
-      <h3> <%= place.name %> </h3>
-      <h4> State: <%= place.state %></h4>
-      <h6> Description: <%= place.description %> </h6>
-      <%= link_to (image_tag (place.image), :alt => place.name, :class => 'thumb'), place_attraction_path(@attractions, place)%>
+      <li> <%= place.name %> </li><br>
+      <li> State: <%= place.state %></li><br>
+      <h5><li> Description: <%= place.description %> </li><br></h5>
+      <%= link_to (image_tag (place.image), :alt => place.name, :class => 'thumb'), place_attractions_path(place)%>
       <hr/>
     </p>
 <% end %>

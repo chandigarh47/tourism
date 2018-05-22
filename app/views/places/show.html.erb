@@ -1,26 +1,22 @@
-<h1>show places</h1>
-
-
-
+<!-- <h1>show places</h1> -->
 
 <div class="places-info">
     <h2><%= @place.name %></h2>
-    <div class="all-places"><%= link_to 'All Places', places_path%></div>
+    <div class="all-places"><%= link_to 'All Places', places_path %></div><br><br>
 
 
 
 <div class="details">
   <ul>
-    <li>Name: <%= @place.name %></li>
-    <li>state: <%= @place.state %></li>
-    <li>description: <%= @place.description %></li>
+    <li>Name: <%= @place.name %></li><br><br>
+    <li>state: <%= @place.state %></li><br><br>
+    <%= image_tag @place.image, :class => 'thumb' %>
+    <br><br>
+    <div id="place-description">
+    <h4>description: <%= @place.description %><br><br><br></h4>
+    <div>
+
   </ul>
 </div>
 
-
-<!-- <div class="controls">
-
-   <%= link_to 'edit place', edit_place_path(@place.id) %>
-   <%= button_to 'delete place', places_path(@place.id), :method =>'delete' %>
- </div> -->
 </div>

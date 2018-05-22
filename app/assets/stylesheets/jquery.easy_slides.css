@@ -158,9 +158,9 @@
 
 .slider_circle_10 {
     position: relative;
-    width: 70vw;
+    width: 90vw;
     /* 640px; */
-    height: 53.2vw;
+    height: 60vw;
     margin: 0 auto;
     user-select: none;
 }
@@ -532,7 +532,7 @@
     text-align: center;
     line-height: 30px;
     border-radius: 50%;
-    
+
 }
 
 .prev_button {

@@ -15,9 +15,11 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   resources :users
-  resources :reviews, :only => [:create, :edit, :update]
+  # resources :reviews, :only => [:create, :edit, :update]
 
   resources :places do
-    resources :attractions
+    resources :attractions do
+      resources :reviews
+    end
   end
 end

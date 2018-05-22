@@ -1,1 +1,11 @@
+<%= form_for ([@attraction, @review]) do |f| %>
 
+
+    <%= f.label :place_id %>
+    <%= f.email_field :email, :class => 'form-control'%>
+
+    <%= f.label :comment %>
+    <%= f.text_area :comment, :autofocus => true %>
+    <%= f.submit %>
+
+<% end %>

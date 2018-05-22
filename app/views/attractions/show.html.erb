@@ -1,29 +1,27 @@
-<h1> <%= @place.name %></h1>
+<link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+
+<div class="wrap">
+  <div class="sticker"></div>
+  <div class="msg"><h1> <%= @place.name %></h1></div>
+</div>
+
 
 <% @attractions.each do |attraction| %>
     <p>
-      <h2> <%= attraction.name %> </h2>
-      <h3> Activity: <%= attraction.category %></h3>
-      <%= image_tag (attraction.image), :class => 'thumbnail' %>
+      <h3> <%= attraction.name %> </h3>
+      <h5> Activity: <%= attraction.category %></h5>
+      <%= image_tag attraction.image, :class => 'thumb' %>
+      <%= link_to('Visit Website', attraction.booking_link) %>
+      <h1> debug </h1>
+
       <hr/>
     </p>
+
 <% end %>
 
 
-<div id="attraction-data">
+ <div id="attraction-data">
 
 </div>
 
 <img id="icon-image" />
-
-<div class="form-details">
-      <button onclick="$('#reviews').slideToggle()">Show reviews</button>
-      <div id="reviews" style="display:none">
-        <% if @current_user.present? %>
-        <%= form_for Review.new do |f| %>
-
-
-        <%= hidden_field_tag :attraction_id, @attraction_id %>
-        <%= f.submit %>
-        <% end %>
-      <% end %>

@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2018_05_21_105043) do
     t.text "state"
     t.text "description"
     t.text "image"
+    t.integer "latitude"
+    t.integer "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +47,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_105043) do
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
     t.integer "attraction_id"
-    t.text "image"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
